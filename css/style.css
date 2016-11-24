@@ -1,0 +1,111 @@
+.top-left {
+    border-width: 20px;
+    border-left-width: 40px;
+    border-top-width: 40px;
+    border-style: solid;
+    border-color: #393939;
+    height: 20vw;
+    width: 20vw;
+    background-color: green;
+    border-top-left-radius: 100%;
+}
+
+.top-right {
+    border-width: 20px;
+    border-right-width: 40px;
+    border-top-width: 40px;
+    border-style: solid;
+    border-color: #393939;
+    height: 20vw;
+    width: 20vw;
+    background-color: red;
+    border-top-right-radius: 100%;
+}
+
+.bot-left {
+    border-width: 20px;
+    border-style: solid;
+    border-color: #393939;
+    height: 20vw;
+    width: 20vw;
+    border-left-width: 40px;
+    border-bottom-width: 40px;
+    background-color: blue;
+    border-bottom-left-radius: 100%;
+}
+
+.bot-right {
+    border-width: 20px;
+    border-right-width: 40px;
+    border-bottom-width: 40px;
+    border-style: solid;
+    border-color: #393939;
+    height: 20vw;
+    width: 20vw;
+    background-color: yellow;
+    border-bottom-right-radius: 100%;
+}
+
+.top {
+    top: 50%;
+    left: 50%;
+    margin-left: 29%;
+    margin-top: 5%;
+}
+
+.bottom {
+    top: 50%;
+    left: 50%;
+    margin-left: 29%;
+}
+
+.upper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10vw;
+    margin-left: -10vw;
+    height: 20vw;
+    width: 20vw;
+    border-width: 20px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #393939;
+    background-color: white;
+}
+
+.title {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 100px;
+}
+
+.counter {
+    height: 60px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    border-color: #393939;
+    border-width: 3px;
+    border-style: solid;
+    background-color: #393939;
+    color:red;
+}
+.start{
+    text-align: center;
+    font-size: 30px;
+}
+.mode{
+    text-align: center;
+    font-size: 30px;
+}
+.pointer{
+    width:30px;
+    height:30px;
+    margin-left: 45%;
+    border-color: #393939;
+    background-color: red;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%;
+}
