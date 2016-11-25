@@ -37,6 +37,9 @@
     $(".but").click(function () {
         fire($(".but").index($(this)));
         brr.push($(".but").index($(this)));
+        if (arr != brr){
+            $(".counter").text("!!");
+        }
         console.log("brr" + brr);
     });
 
