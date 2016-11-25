@@ -11,21 +11,21 @@
 </head>
 <body>
 <div class="container-fluid top">
-    <div class="col-md-6 top-left"></div>
-    <div class="col-md-6 top-right"></div>
+    <div class="col-md-6 top-left but"></div>
+    <div class="col-md-6 top-right but"></div>
 </div>
 <div class="container-fluid bottom">
-    <div class="col-md-6 bot-left"></div>
-    <div class="col-md-6 bot-right"></div>
+    <div class="col-md-6 bot-left but"></div>
+    <div class="col-md-6 bot-right but"></div>
 </div>
-<div class="container-fluid upper">
+<div class="upper">
     <div class="title">Simon</div>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4 counter">00</div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4 pointer"></div>
     </div>
-    <div class="row">
+    <div>
         <div class="col-md-6 start">
             <button>Start</button>
         </div>
@@ -33,8 +33,11 @@
             <button>Strict</button>
         </div>
     </div>
-    <div class="row pointer"></div>
-
+    <div class="btn-group on-off" id="toggle_event_editing">
+        <button type="button" class="btn btn-info locked_active">OFF</button>
+        <button type="button" class="btn btn-default unlocked_inactive">ON</button>
+    </div>
 </div>
+<script src="app.js"></script>
 </body>
 </html>
