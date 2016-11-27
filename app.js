@@ -7,6 +7,12 @@
     var win = false;
     var brr = [];
     var arr = [];
+    var sound = {
+        0: "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
+        1: "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
+        2: "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
+        3: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+    };
     var colors = {
         0: $(".but").eq(0).css("background-color"),
         1: $(".but").eq(1).css("background-color"),
@@ -48,7 +54,7 @@
 
     $(".but").click(function () {
         var same = this;
-        if (!locked) {
+        if ((!locked)) {
             var promise = new Promise(function (resolve, reject) {
                 fire($(".but").index($(same)));
                 resolve($(".but").index($(same)));
@@ -91,7 +97,11 @@
         if (!win) {
             var index = Math.floor(Math.random() * 4);
             arr.push(index);
-            $(".counter").text(arr.length);
+            if (arr.length < 10) {
+                $(".counter").text("0" + arr.length);
+            } else {
+                $(".counter").text(arr.length);
+            }
             if (arr.length > 0) {
                 for (var i = 0; i < arr.length; i++) {
                     fire(arr[i], i + j);
@@ -105,6 +115,9 @@
     function fire(index, i) {
         setTimeout(function () {
             $(".but").eq(index).css("background-color", newColors[index]);
+            
+            var audio = new Audio(sound[index]);
+            audio.play();
             setTimeout(function () {
                 $(".but").eq(index).css("background-color", colors[index]);
             }, 700);
