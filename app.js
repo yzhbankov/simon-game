@@ -55,10 +55,17 @@
             })
                 .then(function (result) {
                     brr.push(result);
-                    console.log(arr);
-                    console.log(brr);
                     if (!isEqual(brr, arr)) {
                         $(".counter").text("!!");
+                        if (mode) {
+                            win = false;
+                            arr = new Array();
+                            brr = new Array();
+                            simon(1);
+                        } else {
+                            arr.pop();
+                            simon(1);
+                        }
                     } else if (brr.length == 5) {
                         $(".counter").text("Win!");
                         win = true;
