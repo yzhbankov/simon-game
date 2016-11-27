@@ -1,72 +1,81 @@
 .top-left {
-    border-width: 20px;
+    border-width: 15px;
     border-left-width: 40px;
     border-top-width: 40px;
     border-style: solid;
     border-color: #393939;
-    height: 20vw;
-    width: 20vw;
+    margin: 0;
+    height: 350px;
+    width: 350px;
     background-color: green;
     border-top-left-radius: 100%;
+    box-shadow: 0px 0px 12px #222;
+    display: inline-block;
 }
 
 .top-right {
-    border-width: 20px;
+    border-width: 15px;
     border-right-width: 40px;
     border-top-width: 40px;
     border-style: solid;
     border-color: #393939;
-    height: 20vw;
-    width: 20vw;
+    height: 350px;
+    width: 350px;
     background-color: red;
     border-top-right-radius: 100%;
+    box-shadow: 0px 0px 12px #222;
+    display: inline-block;
 }
 
 .bot-left {
-    border-width: 20px;
+    border-width: 15px;
     border-style: solid;
     border-color: #393939;
-    height: 20vw;
-    width: 20vw;
+    height: 350px;
+    width: 350px;
     border-left-width: 40px;
     border-bottom-width: 40px;
     background-color: blue;
     border-bottom-left-radius: 100%;
+    box-shadow: 0px 0px 12px #222;
+    display: inline-block;
 }
 
 .bot-right {
-    border-width: 20px;
+    border-width: 15px;
     border-right-width: 40px;
     border-bottom-width: 40px;
     border-style: solid;
     border-color: #393939;
-    height: 20vw;
-    width: 20vw;
+    height: 350px;
+    width: 350px;
     background-color: yellow;
     border-bottom-right-radius: 100%;
+    box-shadow: 0px 0px 12px #222;
+    display: inline-block;
 }
 
 .top {
-    top: 50%;
-    left: 50%;
-    margin-left: 29%;
-    margin-top: 5%;
+    display: block;
 }
 
 .bottom {
-    top: 50%;
-    left: 50%;
-    margin-left: 29%;
+    display: block;
+}
+
+.wrap {
+    margin: 10vh auto;
+    text-align: center;
 }
 
 .upper {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -10vw;
-    margin-left: -10vw;
-    height: 20vw;
-    width: 20vw;
+    margin-left: -200px;
+    margin-top: -240px;
+    height: 400px;
+    width: 400px;
     border-width: 20px;
     border-radius: 50%;
     border-style: solid;
@@ -92,20 +101,24 @@
     border-width: 3px;
     border-style: solid;
     background-color: #393939;
-    color:red;
+    color: red;
 }
-.start{
+
+.start {
     text-align: center;
     font-size: 25px;
 }
-.mode{
+
+.mode {
     text-align: center;
     font-size: 25px;
 }
-.pointer{
-    width:20px;
-    height:20px;
-    padding: 0; !important;
+
+.pointer {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+!important;
     border-color: #393939;
     background-color: red;
     border-width: 3px;
@@ -114,7 +127,8 @@
     margin-top: 25px;
     margin-left: 30px;
 }
-.on-off{
-margin-top: 10px;
+
+.on-off {
+    margin-top: 10px;
     margin-left: 35%;
 }

@@ -72,7 +72,7 @@
                             arr.pop();
                             simon(1);
                         }
-                    } else if (brr.length == 5) {
+                    } else if (brr.length == 20) {
                         $(".counter").text("Win!");
                         win = true;
                     }
@@ -115,7 +115,6 @@
     function fire(index, i) {
         setTimeout(function () {
             $(".but").eq(index).css("background-color", newColors[index]);
-            
             var audio = new Audio(sound[index]);
             audio.play();
             setTimeout(function () {
