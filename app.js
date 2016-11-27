@@ -26,6 +26,9 @@
             $(".counter").text("");
         } else {
             $(".counter").text("00");
+            win = false;
+            arr = new Array();
+            brr = new Array();
         }
         $('#toggle_event_editing button').eq(0).toggleClass('locked_inactive locked_active btn-default btn-info');
         $('#toggle_event_editing button').eq(1).toggleClass('unlocked_inactive unlocked_active btn-info btn-default');
@@ -44,19 +47,27 @@
     });
 
     $(".but").click(function () {
+        var same = this;
         if (!locked) {
-            fire($(".but").index($(this)));
-            brr.push($(".but").index($(this)));
-            if (!isEqual(brr, arr)) {
-                $(".counter").text("!!");
-            } else if (brr.length == 5) {
-                $(".counter").text("Win!");
-                win = true;
-            }
-            if (brr.length == arr.length) {
-                simon();
-                brr = new Array();
-            }
+            var promise = new Promise(function (resolve, reject) {
+                fire($(".but").index($(same)));
+                resolve($(".but").index($(same)));
+            })
+                .then(function (result) {
+                    brr.push(result);
+                    console.log(arr);
+                    console.log(brr);
+                    if (!isEqual(brr, arr)) {
+                        $(".counter").text("!!");
+                    } else if (brr.length == 5) {
+                        $(".counter").text("Win!");
+                        win = true;
+                    }
+                    if (brr.length == arr.length) {
+                        simon(1);
+                        brr = new Array();
+                    }
+                });
         }
     });
 
@@ -65,18 +76,18 @@
         arr = new Array();
         brr = new Array();
         if (!locked) {
-                simon();
+            simon(0);
         }
     });
 
-    function simon() {
+    function simon(j) {
         if (!win) {
             var index = Math.floor(Math.random() * 4);
             arr.push(index);
             $(".counter").text(arr.length);
             if (arr.length > 0) {
                 for (var i = 0; i < arr.length; i++) {
-                    fire(arr[i], i);
+                    fire(arr[i], i + j);
                 }
             } else {
                 fire(index);
@@ -102,9 +113,5 @@
         return true;
     }
 })();
-
-
-
-
 
 
