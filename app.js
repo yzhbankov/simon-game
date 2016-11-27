@@ -3,7 +3,8 @@
  */
 (function () {
     var mode = false;
-    var tumbler = false;
+    var locked = true;
+    var win = false;
     var brr = [];
     var arr = [];
     var colors = {
@@ -20,43 +21,68 @@
     };
     $('#toggle_event_editing button').click(function () {
         /* reverse locking status */
+        locked = !locked;
+        if (locked) {
+            $(".counter").text("");
+        } else {
+            $(".counter").text("00");
+        }
         $('#toggle_event_editing button').eq(0).toggleClass('locked_inactive locked_active btn-default btn-info');
         $('#toggle_event_editing button').eq(1).toggleClass('unlocked_inactive unlocked_active btn-info btn-default');
     });
 
-    $(".mode").click(function () {
-        if (!mode) {
-            $(".pointer").css("background-color", "yellow");
-            mode = true;
-        } else {
-            $(".pointer").css("background-color", "red");
-            mode = false;
+    $(".mode-js").click(function () {
+        if (!locked) {
+            if (!mode) {
+                $(".pointer").css("background-color", "yellow");
+                mode = true;
+            } else {
+                $(".pointer").css("background-color", "red");
+                mode = false;
+            }
         }
     });
 
     $(".but").click(function () {
-        fire($(".but").index($(this)));
-        brr.push($(".but").index($(this)));
-        if (arr != brr){
-            $(".counter").text("!!");
+        if (!locked) {
+            fire($(".but").index($(this)));
+            brr.push($(".but").index($(this)));
+            if (!isEqual(brr, arr)) {
+                $(".counter").text("!!");
+            } else if (brr.length == 5) {
+                $(".counter").text("Win!");
+                win = true;
+            }
+            if (brr.length == arr.length) {
+                simon();
+                brr = new Array();
+            }
         }
-        console.log("brr" + brr);
     });
 
-    $(".start").click(function () {
-
-        /*while (arr.length < 20) {*/
-        var index = Math.floor(Math.random() * 4);
-        arr.push(index);
-        if (arr.length > 0) {
-            for (var i = 0; i < arr.length; i++){
-                fire(arr[i], i);
-            };
-        } else {
-            fire(index)
+    $(".start-js").click(function () {
+        win = false;
+        arr = new Array();
+        brr = new Array();
+        if (!locked) {
+                simon();
         }
-        console.log("arr" + arr);
     });
+
+    function simon() {
+        if (!win) {
+            var index = Math.floor(Math.random() * 4);
+            arr.push(index);
+            $(".counter").text(arr.length);
+            if (arr.length > 0) {
+                for (var i = 0; i < arr.length; i++) {
+                    fire(arr[i], i);
+                }
+            } else {
+                fire(index);
+            }
+        }
+    }
 
     function fire(index, i) {
         setTimeout(function () {
@@ -64,7 +90,21 @@
             setTimeout(function () {
                 $(".but").eq(index).css("background-color", colors[index]);
             }, 700);
-        }, i*1000);
+        }, i * 1000);
+    }
+
+    function isEqual(brr, arr) {
+        for (var i = 0; i < brr.length; i++) {
+            if (arr[i] != brr[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 })();
+
+
+
+
+
 
