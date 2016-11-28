@@ -5,6 +5,7 @@
     var mode = false;
     var locked = true;
     var win = false;
+    var running = false;
     var brr = [];
     var arr = [];
     var sound = {
@@ -54,38 +55,43 @@
 
     $(".but").click(function () {
         var same = this;
-        if ((!locked)) {
-            var promise = new Promise(function (resolve, reject) {
+        if ((!locked) && (running)) {
+            brr.push($(".but").index($(same)));
+            if (!isEqual(brr, arr)) {
+                brr = new Array();
+                running = false;
+                $(".counter").text("!!");
+                if (mode) {
+                    win = false;
+                    arr = new Array();
+                    brr = new Array();
+                    setTimeout(function () {
+                        simon(1)
+                    }, 2000);
+                } else {
+                    arr.pop();
+                    setTimeout(function () {
+                        simon(1)
+                    }, 2000);
+                }
+            } else if (brr.length == 20) {
+                $(".counter").text("Win!");
+                win = true;
+            } else if (brr.length == arr.length) {
                 fire($(".but").index($(same)));
-                resolve($(".but").index($(same)));
-            })
-                .then(function (result) {
-                    brr.push(result);
-                    if (!isEqual(brr, arr)) {
-                        $(".counter").text("!!");
-                        if (mode) {
-                            win = false;
-                            arr = new Array();
-                            brr = new Array();
-                            simon(1);
-                        } else {
-                            arr.pop();
-                            simon(1);
-                        }
-                    } else if (brr.length == 20) {
-                        $(".counter").text("Win!");
-                        win = true;
-                    }
-                    if (brr.length == arr.length) {
-                        simon(1);
-                        brr = new Array();
-                    }
-                });
+                running = false;
+                simon(1);
+                brr = new Array();
+            } else {
+                fire($(".but").index($(same)));
+            }
+
         }
     });
 
     $(".start-js").click(function () {
         win = false;
+        running = true;
         arr = new Array();
         brr = new Array();
         if (!locked) {
@@ -108,12 +114,16 @@
                 }
             } else {
                 fire(index);
+                running = true;
             }
         }
     }
 
     function fire(index, i) {
         setTimeout(function () {
+            if (i == arr.length - 1) {
+                running = true
+            }
             $(".but").eq(index).css("background-color", newColors[index]);
             var audio = new Audio(sound[index]);
             audio.play();
