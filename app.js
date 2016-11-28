@@ -12,7 +12,8 @@
         0: "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
         1: "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
         2: "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
-        3: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+        3: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
+        "wrong": "http://www.freesound.org/data/previews/331/331912_3248244-lq.mp3"
     };
     var colors = {
         0: $(".but").eq(0).css("background-color"),
@@ -61,8 +62,9 @@
                 brr = new Array();
                 running = false;
                 $(".counter").text("!!");
+                var audio = new Audio(sound["wrong"]);
+                 audio.play();
                 if (mode) {
-                    win = false;
                     arr = new Array();
                     brr = new Array();
                     setTimeout(function () {
@@ -111,10 +113,8 @@
             if (arr.length > 0) {
                 for (var i = 0; i < arr.length; i++) {
                     fire(arr[i], i + j);
+                    running = true;
                 }
-            } else {
-                fire(index);
-                running = true;
             }
         }
     }
