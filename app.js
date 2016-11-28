@@ -63,7 +63,7 @@
                 running = false;
                 $(".counter").text("!!");
                 var audio = new Audio(sound["wrong"]);
-                 audio.play();
+                audio.play();
                 if (mode) {
                     arr = new Array();
                     brr = new Array();
