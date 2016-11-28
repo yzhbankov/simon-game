@@ -19,27 +19,28 @@
     <div class="bot-left but"></div>
     <div class="bot-right but"></div>
 </div>
-</div>
-<div class="upper">
-    <div class="title">Simon</div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 counter"></div>
-        <div class="col-md-4 pointer"></div>
-    </div>
-    <div>
-        <div class="col-md-6 start">
-            <button class="start-js">Start</button>
+    <div class="upper">
+        <div class="title">Simon</div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4"></div>
+            <div class="col-md-4 col-xs-4 counter"></div>
+            <div class="col-md-4 col-xs-4 pointer"></div>
         </div>
-        <div class="col-md-6 mode">
-            <button class="mode-js">Strict</button>
+        <div>
+            <div class="col-md-6 col-xs-6 start">
+                <button class="start-js">Start</button>
+            </div>
+            <div class="col-md-6 col-xs-6 mode">
+                <button class="mode-js">Strict</button>
+            </div>
+        </div>
+        <div class="btn-group on-off" id="toggle_event_editing">
+            <button type="button" class="btn btn-info locked_active">OFF</button>
+            <button type="button" class="btn btn-default unlocked_inactive">ON</button>
         </div>
     </div>
-    <div class="btn-group on-off" id="toggle_event_editing">
-        <button type="button" class="btn btn-info locked_active">OFF</button>
-        <button type="button" class="btn btn-default unlocked_inactive">ON</button>
-    </div>
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>
