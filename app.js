@@ -68,12 +68,12 @@
                     arr = new Array();
                     brr = new Array();
                     setTimeout(function () {
-                        simon(1)
+                        simon(1);
                     }, 2000);
                 } else {
                     arr.pop();
                     setTimeout(function () {
-                        simon(1)
+                        simon(1);
                     }, 2000);
                 }
             } else if (brr.length == 20) {
@@ -110,17 +110,15 @@
             } else {
                 $(".counter").text(arr.length);
             }
-            if (arr.length > 0) {
-                for (var i = 0; i < arr.length; i++) {
-                    fire(arr[i], i + j);
-                }
+            for (var i = 0; i < arr.length; i++) {
+                fire(arr[i], i + j, j);
             }
         }
     }
 
-    function fire(index, i) {
+    function fire(index, i, j) {
         setTimeout(function () {
-            if (i == arr.length - 1) {
+            if ((i == arr.length - 1) || (i - j == arr.length - 1)) {
                 running = true
             }
             $(".but").eq(index).css("background-color", newColors[index]);
